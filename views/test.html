@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html ng-app="myApp">
+
+<head>
+   
+   <link rel="stylesheet" type="text/css" href="../css/style.css">
+   <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.9/angular.min.js"></script>
+   <script src="../controllers/crudController.js"></script>
+	
+</head>
+
+
+<body>
+
+    <div  ng-controller="myCtrl" class="center">
+
+
+    		<form name="myform">
+
+    			 <input type="email" name = "username" placeholder="Username" ng-model = "username" required>
+    			       <span ng-show = "myform.username.$touched && myform.username.$invalid" style="color: red"> Email-id is Required</span><br><br>
+    			       
+
+    			
+    			 <input type="password" name = "password" placeholder="Password" ng-model = "password" required>
+    			       <span ng-show = "myform.password.$touched && myform.password.$invalid" style="color: red"> password is Required</span><br>
+
+    			       <p id = "pwdMessage" style="color: red ; display: none;">
+    			       	Require one uppercase one digit and one special character
+    			       </p> <br>
+
+    			 <button ng-click = "insertData()"> Insert </button>    
+    			 <button ng-click = "UpdateData()"> Update </button>
+    			 <button ng-click = "deleteData()"> Delete </button>
+    			 <button ng-click = "resetData()"> Reset </button>  <br><br>
+
+    			 <p id = "message" style=" display: none;"></p> <br>
+
+    			<input type="checkbox" name="" ng-model = "checked"> show Database <br><br>
+    	 		 
+
+    		<table ng-show = "checked">
+    			<tr>
+    				<th>Sr.no</th><th>Username</th><th>Password</th>
+    			</tr>
+
+    			<tr ng-repeat = "x in data">
+    			 <td>{{ $index + 1 }}</td>
+    		     <td>{{x.uname}}</td>
+    		     <td>{{x.pwd}}</td>
+    		    </tr>
+    		</table>
+
+
+    	</form>
+
+    </div>
+
+
+
+
+
+</body>
+</html>
