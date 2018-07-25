@@ -1,5 +1,7 @@
-<script>
+
 var app = angular.module('myApp', []);
+
+
 app.controller('myCtrl', function($scope) {
 
 	$scope.username = "";
@@ -165,6 +167,7 @@ app.controller('myCtrl', function($scope) {
      	$scope.password = "";
      }
 
+    
 });
-</script>
+
 
